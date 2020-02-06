@@ -1,8 +1,20 @@
-# Fathom Analytics dashboard widgets for Craft CMS
+# Fathom Analytics for Craft CMS
 
 Statistics and chart widgets for Fathom analytics.
 
 ![Screenshot](resources/img/plugin-logo.png)
+
+## A word about privacy, GDPR, &hellip;
+
+There has been a lot of talk about GDPR, cookies, privacy, &hellip; It's becoming more clear that big companies like Google are tracking you. Nearly every site I visit has Google Analytics installed on it. 
+
+Even configuring Google Analytics to not send your IP address (i.e. setting `anonymizeIp` **true**) is being considered not in regulation of the privacy laws in Europe. Whether or not that's true, you're sharing a lot of data with Google. According to [BuiltWith](https://trends.builtwith.com/analytics/Google-Analytics) at the time of writing, more than 60% of the top 1m sites use Google Analytics. That's a horrific number, considering Google can use this data to keep a profile of you and your browsing habbits.
+
+Fathom Lite offers a free option you can self-host. Fathom already is commited about your privacy, and self-hosting it means you're not sharing any data with third party services.
+
+## A word about cookies
+
+Fathom Lite still uses cookies. But since you are not sharing any data with third party services, and Fathom does not store any personally identifiable information, you and your users data are **safe**.
 
 ## Requirements
 
