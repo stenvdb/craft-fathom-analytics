@@ -6,9 +6,9 @@ Statistics and chart widgets for Fathom analytics.
 
 ## A word about privacy, GDPR and cookie banners
 
-If you care about privacy and use Google Analytics on your site, I encourage you to read some of my toughts, explaining how the majority of sites are not in comply with Europe's GDPR and PECR regulations.
+If you care about privacy and use Google Analytics on your site, I encourage you to [read some of my toughts about it](https://stenvdb/articles), explaining how the majority of sites are not in comply with Europe's GDPR and PECR regulations.
 
-TL;DR
+**TL;DR**
 
 [Fathom](https://usefathom.com/) is a Google Analytics alternative. They offer [Fathom Lite](https://github.com/usefathom/fathom), which is free and you can self-host. Thereby no data is being shared with third party services. 
 
