@@ -2,7 +2,7 @@
 
 Statistics and chart widgets for Fathom analytics.
 
-![Screenshot](resources/img/plugin-logo.png)
+![Screenshot](resources/img/screenshot.png)
 
 ## A word about privacy, GDPR, &hellip;
 
