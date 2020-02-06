@@ -1,0 +1,15 @@
+$buttonHeights: (
+  small: 26px,
+  base: 60px
+) !default;
+
+// In pixels -> will convert to rem
+// (strip-units($sizeValue) / 16) + rem
+$headingSizes: (
+  h1: 40px,
+  h2: 32px,
+  h3: 28px,
+  h4: 24px,
+  h5: 20px,
+  h6: 16px,
+) !default;

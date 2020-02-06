@@ -1,0 +1,11 @@
+.container {
+  @apply mx-auto px-4;
+  max-width: theme('screens.xl');
+}
+
+// Don't show google reCaptcha badge
+.grecaptcha-badge {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+}

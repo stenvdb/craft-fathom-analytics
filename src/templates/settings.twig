@@ -1,0 +1,59 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Fathom Analytics plugin for Craft CMS 3.x
+ *
+ * Fathom Analytics Settings.twig
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   FathomAnalytics
+ * @since     1.0.0
+ */
+#}
+{% import "_includes/forms" as forms %}
+
+{{ forms.autosuggestField({
+    label: 'Base URI',
+    instructions: 'The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.',
+    id: 'baseUri',
+    name: 'baseUri',
+    first: true,
+    value: settings['baseUri'],
+    suggestEnvVars: true,
+  })
+}}
+
+{{ forms.autosuggestField({
+    label: 'Tracking ID',
+    type: 'text',
+    instructions: 'The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE',
+    id: 'trackingId',
+    name: 'trackingId',
+    value: settings['trackingId'],
+    suggestEnvVars: true,
+  })
+}}
+
+{{ forms.autosuggestField({
+    label: 'Username',
+    type: 'email',
+    instructions: '',
+    id: 'username',
+    name: 'username',
+    value: settings['username'],
+    suggestEnvVars: true,
+  })
+}}
+
+{{ forms.autosuggestField({
+    label: 'Password',
+    type: 'password',
+    instructions: '',
+    id: 'password',
+    name: 'password',
+    value: settings['password'],
+    suggestEnvVars: true,
+  })
+}}

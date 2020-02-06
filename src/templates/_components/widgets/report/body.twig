@@ -1,0 +1,40 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Fathom Analytics plugin for Craft CMS
+ *
+ * Report Widget Body
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   FathomAnalytics
+ * @since     1.0.0
+ */
+#}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@stenvdb/fathomanalytics/assetbundles/fathomanalytics/dist', true) ~ '/img/Widget.svg' %}
+
+<div class="fa--m-widget-spacing">
+  <div class="fa-border-solid fa-border-b fa-border-gray-200 fa-p-widget-spacing">
+    <h3 class="fa-leading-none fa-mb-0">
+      <span class="fa-font-bold"><span class="fa-text-2xl js-fa-total">&hellip;</span> <span class="fa-text-craft-blue">{{ settings.report|t('fathom-analytics')|ucfirst }}</span></span>
+      <span class="fa-text-gray-500">
+        {% if settings.period == 'year' %}
+        {{ 'in het last'|t('fathom-analytics') }}
+        {% else %}
+        {{ 'in the last'|t('fathom-analytics') }}
+        {% endif %}
+      </span>
+      <span class="fa-font-bold">{{ settings.period|t('fathom-analytics') }}</span>
+    </h3>
+  </div>
+  <div class="fa-my-6"><canvas id="myChart" width="400" height="200"></canvas></div>
+  <div class="fa-border-solid fa-border-t fa-border-gray-200 fa-flex fa-justify-end fa-items-end">
+    <div class="fa-px-widget-spacing fa-py-4 fa-flex fa-items-center fa-text-xs">
+      <span class="">powered by</span>
+      <img src="{{ iconUrl }}" height="20" width="20" class="fa-mx-1" />
+      <a href="https://usefathom.com/" target="_blank" class="fa-underline">fathom analytics</a>
+    </div>
+  </div>
+</div>

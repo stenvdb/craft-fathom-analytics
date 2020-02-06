@@ -1,0 +1,43 @@
+{
+    "name": "stenvdb/craft-fathom-analytics",
+    "description": "Statistics and chart widgets for Fathom analytics.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "fathom analytics"
+    ],
+    "support": {
+        "docs": "https://github.com/stenvdb/craft-fathom-analytics/blob/master/README.md",
+        "issues": "https://github.com/stenvdb/craft-fathom-analytics/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sten Van den Bergh",
+            "homepage": "https://stenvdb.be"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "stenvdb\\fathomanalytics\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Fathom Analytics",
+        "handle": "fathom-analytics",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/stenvdb/craft-fathom-analytics/master/CHANGELOG.md",
+        "components": {
+            "reports": "stenvdb\\fathomanalytics\\services\\Reports"
+        },
+        "class": "stenvdb\\fathomanalytics\\FathomAnalytics"
+    }
+}

@@ -1,0 +1,41 @@
+.button {
+  $self: &;
+  @apply relative inline-flex justify-center items-center cursor-pointer px-4;
+  transition: all 0.15s ease-in-out;
+
+  // IE Bug -> https://github.com/philipwalton/flexbugs/issues/231#issuecomment-362790042
+  &::after {
+    content: '';
+    min-height: inherit;
+    font-size: 0;
+  }
+
+  @each $class, $height in $buttonHeights {
+    &--#{$class} {
+      min-height: $height;
+      min-width: $height;
+    }
+  }
+
+  &--has-dropdown {
+    @apply relative;
+
+    &:hover div.hidden {
+      display: block;
+      @apply absolute w-full inset-x-0;
+      top: 100%;
+    }
+  }
+}
+
+.dropdown {
+  &:hover {
+    div.hidden {
+      display: block;
+    }
+  }
+
+  div.hidden {
+    top: 100%;
+  }
+}

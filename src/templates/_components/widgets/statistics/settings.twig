@@ -1,0 +1,31 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Fathom Analytics plugin for Craft CMS
+ *
+ * Statistics Widget Settings
+ *
+ * @author    Sten Van den Bergh
+ * @copyright Copyright (c) 2020 Sten Van den Bergh
+ * @link      https://stenvdb.be
+ * @package   FathomAnalytics
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("stenvdb\\fathomanalytics\\assetbundles\\fathomanalytics\\FathomAnalyticsAsset") %}
+
+{% set periodOptions = [
+  { label: 'week'|t('fathom-analytics')|ucwords, value: 'week' },
+  { label: 'month'|t('fathom-analytics')|ucwords, value: 'month' },
+  { label: 'year'|t('fathom-analytics')|ucwords, value: 'year' }
+] %}
+
+{{ forms.selectField({
+  label: 'period'|t('fathom-analytics')|ucwords,
+  name: 'period',
+  options: periodOptions,
+  value: settings.period,
+}) }}

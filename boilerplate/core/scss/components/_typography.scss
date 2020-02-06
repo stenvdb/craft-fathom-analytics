@@ -1,0 +1,39 @@
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@each $selector, $size in $headingSizes {
+  #{$selector} {
+    font-size: (strip-units($size) / 16) + rem;
+  }
+}
+
+// A good long-words fix
+.dont-break-out {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// A good starter for wysiwyg fields
+.body {
+  p:empty { @apply hidden; }
+
+  a {
+    @apply underline;
+    color: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, img {
+    &:not(:first-child):not([class]) { @apply my-6; }
+    &:last-child:not([class]) { @apply mb-0; }
+  }
+
+  li { @apply my-6; }
+
+  ul {
+    @apply pl-6;
+    list-style-type: disc;
+  }
+}

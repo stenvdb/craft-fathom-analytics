@@ -1,0 +1,45 @@
+// Some small input improvements
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { @apply text-black opacity-100; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-black opacity-100; }
+input::-moz-placeholder, textarea::-moz-placeholder { @apply text-black opacity-100; }
+
+input, textarea {
+  .error & {
+    @apply border-red-500 text-red-500;
+    &::-webkit-input-placeholder { @apply text-red-500; }
+  }
+}
+
+// Custom radio buttons and chekcboxes
+input {
+  &[type="radio"] {
+    & + label::after {
+      content: '';
+      @apply w-2 h-2 absolute rounded-full;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    &:checked + label { &::after { background: theme('colors.black'); } }
+  }
+
+  &[type="checkbox"] {
+    &:checked + label::after {
+      content: '';
+      @apply absolute;
+      top: 3px;
+      left: 3px;
+      width: 15px;
+      height: 15px;
+      background: transparent url('../img/inline-svg/checkbox-mark.svg') no-repeat center center / 15px;
+    }
+  }
+
+  &[type="radio"], &[type="checkbox"] {
+    + label {
+      .error & {
+        @apply border-red-500 text-red-500;
+      }
+    }
+  }
+}
