@@ -1,6 +1,6 @@
 # Fathom Analytics for Craft CMS
 
-Statistics and chart widgets for Fathom analytics.
+Statistics and chart widgets for Fathom Lite.
 
 ![Screenshot](resources/img/screenshot.png)
 
@@ -12,7 +12,7 @@ If you care about privacy and website-analytics, I encourage you to [read some o
 
 [Fathom](https://usefathom.com/) is a Google Analytics alternative. They offer [Fathom Lite](https://github.com/usefathom/fathom), which is free and you can self-host. Thereby no data is being shared with third party services. 
 
-Although Fathom **does not collect any personally identifiable information** (and is GDPR compliant), it currently still uses a cookie (and is not PECR compliant without a cookie notice). If you need a cookie-free solution, I suggest switching to Fathom Pro. Fathom Lite might become cookie-free in a future update though 🤞.
+Although Fathom Lite **does not collect any personally identifiable information** (and is GDPR compliant), it currently still uses a cookie (and is not PECR compliant without a cookie notice). If you need a cookie-free solution, I suggest switching to Fathom Pro. Fathom Lite might become cookie-free in a future update though 🤞.
 
 ## Requirements
 
