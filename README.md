@@ -12,7 +12,7 @@ If you care about privacy and website-analytics, I encourage you to [read some o
 
 [Fathom](https://usefathom.com/) is a Google Analytics alternative. They offer [Fathom Lite](https://github.com/usefathom/fathom), which is free and you can self-host. Thereby no data is being shared with third party services. 
 
-Although Fathom **does not collect any personally identifiable information** (and is GDPR compliant), it currently still uses a cookie (and is not PECR compliant without a cookie banner). If you need a cookie-free solution, I suggest switching to Fathom Pro. Fathom Lite might become cookie-free in a future update though 🤞.
+Although Fathom **does not collect any personally identifiable information** (and is GDPR compliant), it currently still uses a cookie (and is not PECR compliant without a cookie notice). If you need a cookie-free solution, I suggest switching to Fathom Pro. Fathom Lite might become cookie-free in a future update though 🤞.
 
 ## Requirements
 
@@ -42,14 +42,14 @@ This plugin obviously requires Fathom running on one of your servers. Once it is
 
 ```
 // The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.
-'baseUri' => getenv('EXAMPLE_BASE_URI'),
+'baseUri' => '$FATHOM_BASE_URI',
 
 // The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE
-'trackingId' => ABCDE,
+'trackingId' => '$FATHOM_TRACKING_ID',
 
-'username' => getenv('EXAMPLE_USERNAME'),
+'username' => '$FATHOM_USERNAME',
 
-'password' => getenv('EXAMPLE_PASSWORD')
+'password' => '$FATHOM_PASSWORD'
 ```
 
 ## Fathom Analytics Roadmap
