@@ -6,7 +6,7 @@ Statistics and chart widgets for Fathom analytics.
 
 ## A word about privacy, GDPR and cookie banners
 
-If you care about privacy and website-analytics, I encourage you to [read some of my toughts about it](https://stenvdb/articles), explaining how the majority of sites are not in comply with Europe's GDPR law.
+If you care about privacy and website-analytics, I encourage you to [read some of my toughts about it](https://stenvdb/articles), explaining why I made the move from Google Analytics to Fathom.
 
 **TL;DR**
 
