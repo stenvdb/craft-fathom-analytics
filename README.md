@@ -4,11 +4,11 @@ Statistics and chart widgets for Fathom Lite.
 
 ![Screenshot](resources/img/screenshot.png)
 
-## A word about privacy, GDPR and cookie banners
+## A word about Fathom
 
-If you care about privacy and website-analytics, I encourage you to [read some of my toughts about it](https://stenvdb/articles), explaining why I made the move from Google Analytics to Fathom.
+[//]: # If you care about privacy and website-analytics, I encourage you to [read some of my toughts about it](https://stenvdb/articles), explaining why I made the move from Google Analytics to Fathom.
 
-**TL;DR**
+[//]: # **TL;DR**
 
 [Fathom](https://usefathom.com/) is a Google Analytics alternative. They offer [Fathom Lite](https://github.com/usefathom/fathom), which is free and you can self-host. Thereby no data is being shared with third party services. 
 
