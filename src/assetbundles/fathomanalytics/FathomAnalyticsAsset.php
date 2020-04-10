@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020 Sten Van den Bergh
  */
 
-namespace stenvdb\fathomanalytics\assetbundles\FathomAnalytics;
+namespace stenvdb\fathomanalytics\assetbundles\fathomanalytics;
 
 use Craft;
 use craft\web\AssetBundle;
