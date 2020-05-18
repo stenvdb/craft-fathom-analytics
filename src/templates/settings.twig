@@ -12,48 +12,87 @@
  * @since     1.0.0
  */
 #}
+{% extends '_layouts/cp' %}
 {% import "_includes/forms" as forms %}
 
-{{ forms.autosuggestField({
-    label: 'Base URI',
-    instructions: 'The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.',
-    id: 'baseUri',
-    name: 'baseUri',
-    first: true,
-    value: settings['baseUri'],
-    suggestEnvVars: true,
-  })
-}}
+{% do view.registerAssetBundle("stenvdb\\fathomanalytics\\assetbundles\\fathomsettings\\SettingsAsset") %}
 
-{{ forms.autosuggestField({
-    label: 'Tracking ID',
-    type: 'text',
-    instructions: 'The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE',
-    id: 'trackingId',
-    name: 'trackingId',
-    value: settings['trackingId'],
-    suggestEnvVars: true,
-  })
-}}
+{% set title = 'Fathom analytics' | t('fathom-analytics') %}
 
-{{ forms.autosuggestField({
-    label: 'Username',
-    type: 'email',
-    instructions: '',
-    id: 'username',
-    name: 'username',
-    value: settings['username'],
-    suggestEnvVars: true,
-  })
-}}
+{% set tabs = {
+    "settings": {label: "Settings"|t('fathom-analytics'), url: "#settings"},
+    "tracking": {label: "Tracking Code"|t('fathom-analytics'), url: "#tracking"},
+} %}
 
-{{ forms.autosuggestField({
-    label: 'Password',
-    type: 'password',
-    instructions: '',
-    id: 'password',
-    name: 'password',
-    value: settings['password'],
-    suggestEnvVars: true,
-  })
-}}
+{% set selectedTab = 'settings' %}
+
+{% set content %}
+<input type="hidden" name="action" value="fathom-analytics/settings/save">
+
+{{ redirectInput('settings/plugins/fathom-analytics') }}
+
+<div id="settings">
+    {{ forms.autosuggestField({
+        label: 'Base URI',
+        instructions: 'The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.',
+        id: 'baseUri',
+        name: 'settings[baseUri]',
+        first: true,
+        value: settings['baseUri'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Tracking ID',
+        type: 'text',
+        instructions: 'The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE',
+        id: 'trackingId',
+        name: 'settings[trackingId]',
+        value: settings['trackingId'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Username',
+        type: 'email',
+        instructions: '',
+        id: 'username',
+        name: 'settings[username]',
+        value: settings['username'],
+        suggestEnvVars: true,
+      })
+    }}
+
+    {{ forms.autosuggestField({
+        label: 'Password',
+        type: 'password',
+        instructions: '',
+        id: 'password',
+        name: 'settings[password]',
+        value: settings['password'],
+        suggestEnvVars: true,
+      })
+    }}
+</div>
+
+<div id="tracking" class="hidden">
+    {{ forms.lightswitchField({
+        label: "Inject Tracking Snippet"|t("fathom-analytics")|md,
+        instructions: 'If enabled the below tracking snippet will automatically be injected in the head section of your site.'|t('fathom-analytics'),
+        id: "injectTracking",
+        name: 'settings[injectTracking]',
+        on: settings.injectTracking
+    }) }}
+
+    {{ forms.textareaField({
+        label: 'Tracking Code Snippet'|t("fathom-analytics"),
+        instructions: 'Adjust Fathom Lite\'s default tracking snippet. You can use {{ baseUri }} and {{ trackingId }} in the script.',
+        id: "trackingCode",
+        name: 'settings[trackingCode]',
+        value: settings['trackingCode'],
+        rows: 10
+    }) }}
+</div>
+{% endset %}

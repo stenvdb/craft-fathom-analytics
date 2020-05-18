@@ -10,8 +10,14 @@
 
 namespace stenvdb\fathomanalytics;
 
+use craft\helpers\UrlHelper;
+use craft\web\View;
 use stenvdb\fathomanalytics\services\Reports as ReportsService;
+use stenvdb\fathomanalytics\services\Reports;
+use stenvdb\fathomanalytics\services\Tags as TagsService;
 use stenvdb\fathomanalytics\models\Settings;
+use stenvdb\fathomanalytics\services\Tags;
+use stenvdb\fathomanalytics\variables\FathomAnalyticsVariable;
 use stenvdb\fathomanalytics\widgets\Statistics as StatisticsWidget;
 use stenvdb\fathomanalytics\widgets\Report as ReportWidget;
 use stenvdb\fathomanalytics\widgets\TopPages as TopPagesWidget;
@@ -24,6 +30,7 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\services\Dashboard;
 use craft\events\RegisterComponentTypesEvent;
 use craft\web\UrlManager;
+use craft\web\twig\variables\CraftVariable;
 
 use yii\base\Event;
 
@@ -42,6 +49,7 @@ use yii\base\Event;
  * @since     1.0.0
  *
  * @property  ReportsService $reports
+ * @property  TagsService $tags
  * @property  Settings $settings
  * @method    Settings getSettings()
  */
@@ -67,6 +75,7 @@ class FathomAnalytics extends Plugin
      * @var string
      */
     public $schemaVersion = '1.0.0';
+    public $hasCpSettings = true;
 
     // Public Methods
     // =========================================================================
@@ -75,6 +84,22 @@ class FathomAnalytics extends Plugin
     {
         parent::init();
         self::$plugin = $this;
+
+        self::setComponents([
+            'reports' => Reports::class,
+            'tags' => Tags::class
+        ]);
+
+        // Register our variables
+        Event::on(
+            CraftVariable::class,
+            CraftVariable::EVENT_INIT,
+            function (Event $event) {
+                /** @var CraftVariable $variable */
+                $variable = $event->sender;
+                $variable->set('fathomAnalytics', FathomAnalyticsVariable::class);
+            }
+        );
 
         // Register our widgets
         Event::on(
@@ -106,6 +131,26 @@ class FathomAnalytics extends Plugin
             ),
             __METHOD__
         );
+
+        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
+            $request = Craft::$app->getRequest();
+
+            if ($request->getIsSiteRequest() && !$request->getIsCpRequest()) {
+                $this->handleTrackingScript();
+            }
+        });
+    }
+
+    public function getSettingsResponse()
+    {
+        return Craft::$app->controller->renderTemplate('fathom-analytics/settings', [
+            'settings' => $this->getSettings(),
+            'fullPageForm' => true,
+            'crumbs' => [
+                ['label' => 'Settings', 'url' => UrlHelper::cpUrl('settings')],
+                ['label' => 'Plugins', 'url' => UrlHelper::cpUrl('settings/plugins')]
+            ]
+        ]);
     }
 
     // Protected Methods
@@ -116,13 +161,12 @@ class FathomAnalytics extends Plugin
         return new Settings();
     }
 
-    protected function settingsHtml(): string
+    protected function handleTrackingScript()
     {
-        return Craft::$app->view->renderTemplate(
-            'fathom-analytics/settings',
-            [
-                'settings' => $this->getSettings()
-            ]
-        );
+        Event::on(View::class, View::EVENT_BEGIN_BODY, function() {
+            if (self::getSettings()->injectTracking) {
+                self::$plugin->tags->inject();
+            }
+        });
     }
 }

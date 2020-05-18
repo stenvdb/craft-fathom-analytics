@@ -1,6 +1,8 @@
 {
   "fathomanalytics.css": "/fathomanalytics/dist/css/fathomanalytics.min.css",
   "fathomanalytics.js": "/fathomanalytics/dist/js/fathomanalytics.min.js",
+  "fathomsettings.css": "/fathomsettings/dist/css/fathomsettings.min.css",
+  "fathomsettings.js": "/fathomsettings/dist/js/fathomsettings.min.js",
   "reportwidget.css": "/reportwidget/dist/css/reportwidget.min.css",
   "reportwidget.js": "/reportwidget/dist/js/reportwidget.min.js",
   "statisticswidget.css": "/statisticswidget/dist/css/statisticswidget.min.css",

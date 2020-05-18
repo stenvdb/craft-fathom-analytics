@@ -49,8 +49,21 @@ This plugin obviously requires Fathom running on one of your servers. Once it is
 
 'username' => '$FATHOM_USERNAME',
 
-'password' => '$FATHOM_PASSWORD'
+'password' => '$FATHOM_PASSWORD',
+
+'injectTracking' = false
 ```
+
+## Tracking Code Snippet
+
+When enabling `injectTracking` setting, the tracking snippet (editable in the plugin settings) will automatically be injected into the head section of your site.
+This is disabled by default. 
+
+Alternatively you can use the following code snippet to force the code injection in your template:
+
+```
+{% do craft.fathomAnalytics.inject() %}
+``` 
 
 ## Fathom Analytics Roadmap
 

@@ -87,7 +87,8 @@ const webpackConfig = {
     fathomanalytics: ['./fathomanalytics/src/js/fathomanalytics.js'],
     statisticswidget: ['./statisticswidget/src/js/statisticswidget.js'],
     reportwidget: ['./reportwidget/src/js/reportwidget.js'],
-    toppageswidget: ['./toppageswidget/src/js/toppageswidget.js']
+    toppageswidget: ['./toppageswidget/src/js/toppageswidget.js'],
+    fathomsettings: ['./fathomsettings/src/js/fathomsettings.js']
   },
   output: {
     path: project.paths.public(''),

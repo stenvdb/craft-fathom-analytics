@@ -1,0 +1,6 @@
+@tailwind utilities;
+
+/*! purgecss start ignore */
+@import "~codemirror/lib/codemirror";
+@import "~codemirror/theme/solarized";
+/*! purgecss end ignore */ /* stylelint-disable-line comment-empty-line-before */
