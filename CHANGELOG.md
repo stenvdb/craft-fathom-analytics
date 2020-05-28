@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.2 - 2020-05-28
+### Fixed
+- Catch different kind of baseUri strings properly
+
 ## 1.1.1 - 2020-05-18
 ### Fixed
 - Cleanup baseUri in tracking script
