@@ -38,20 +38,30 @@ This plugin **only works with Fathom Lite**, the self-hosted open source version
 
 ## Configuring Fathom Analytics
 
-This plugin obviously requires Fathom running on one of your servers. Once it is up and running (which is [super easy](https://github.com/usefathom/fathom/blob/master/docs/Installation%20instructions.md)), configure Fathom Analytic's settings:
+This plugin obviously requires Fathom running on one of your servers. Once it is up and running (which is [super easy](https://github.com/usefathom/fathom/blob/master/docs/Installation%20instructions.md)), configure Fathom Analytic's settings in a `config/fathom-anaytics.php` file. See an example below:
 
 ```
-// The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.
-'baseUri' => '$FATHOM_BASE_URI',
+<?php
 
-// The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE
-'trackingId' => '$FATHOM_TRACKING_ID',
+return array(
+    '*' => array(
+        // The domain name where Fathom is hosted. This is also the URL where the tracker code is pointed to.
+        'baseUri' => '$FATHOM_BASE_URI',
 
-'username' => '$FATHOM_USERNAME',
+        // The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE
+        'trackingId' => '$FATHOM_TRACKING_ID',
 
-'password' => '$FATHOM_PASSWORD',
+        'username' => '$FATHOM_USERNAME',
 
-'injectTracking' = false
+        'password' => '$FATHOM_PASSWORD',
+
+        // Automatically inject a tracking script in your site
+        'injectTracking' => false,
+    ),
+    'production' => [
+        'injectTracking' => true,
+    ],
+);
 ```
 
 ## Tracking Code Snippet
