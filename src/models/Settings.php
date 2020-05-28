@@ -67,7 +67,9 @@ class Settings extends Model
 
     public function getBaseUri(): string
     {
-        return Craft::parseEnv($this->baseUri);
+        // Cleanup the uri so we get a clean domain name
+        $baseUri = rtrim(preg_replace('#^https?://#', '', Craft::parseEnv($this->baseUri)), '/');
+        return $baseUri;
     }
 
     public function getUsername(): string

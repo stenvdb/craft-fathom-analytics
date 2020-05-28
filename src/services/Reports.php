@@ -69,7 +69,7 @@ class Reports extends Component
     private function authenticate()
     {
         $client = new Client([
-            'base_uri' => FathomAnalytics::$plugin->getSettings()->getBaseUri()
+            'base_uri' => 'https://' . FathomAnalytics::$plugin->getSettings()->getBaseUri() . '/'
         ]);
 
         $jar = new CookieJar;
@@ -101,7 +101,7 @@ class Reports extends Component
 
         $jar = CookieJar::fromArray([
             'auth' => Craft::$app->getSession()->get('fa-auth')
-        ], parse_url(FathomAnalytics::$plugin->getSettings()->getBaseUri())['host']);
+        ], parse_url('https://' . FathomAnalytics::$plugin->getSettings()->getBaseUri() . '/')['host']);
 
         return $jar;
     }
@@ -110,7 +110,7 @@ class Reports extends Component
     {
         $jar = $this->getCookieJar();
 
-        $baseUri = FathomAnalytics::$plugin->getSettings()->getBaseUri();
+        $baseUri = 'https://' . FathomAnalytics::$plugin->getSettings()->getBaseUri() . '/';
 
         if (substr($baseUri, -1) !== '/')
         {
@@ -143,7 +143,7 @@ class Reports extends Component
     {
         $jar = $this->getCookieJar();
 
-        $baseUri = FathomAnalytics::$plugin->getSettings()->getBaseUri();
+        $baseUri = 'https://' . FathomAnalytics::$plugin->getSettings()->getBaseUri() . '/';
 
         $endpoint = $baseUri . 'api/sites';
 

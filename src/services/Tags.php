@@ -39,7 +39,7 @@ class Tags extends Component
         $settings = FathomAnalytics::$plugin->getSettings();
         $trackingCode = $settings->trackingCode;
 
-        $baseUri = rtrim(preg_replace('#^https?://#', '', $settings->getBaseUri()), '/');
+        $baseUri = $settings->getBaseUri();
         $trackingId = $settings->getTrackingId();
 
         $data = [
