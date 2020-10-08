@@ -38,7 +38,7 @@ This plugin **only works with Fathom Lite**, the self-hosted open source version
 
 ## Configuring Fathom Analytics
 
-This plugin obviously requires Fathom running on one of your servers. Once it is up and running (which is [super easy](https://github.com/usefathom/fathom/blob/master/docs/Installation%20instructions.md)), configure Fathom Analytic's settings in a `config/fathom-anaytics.php` file. See an example below:
+This plugin obviously requires Fathom running on one of your servers. Once it is up and running (which is [super easy](https://github.com/usefathom/fathom/blob/master/docs/Installation%20instructions.md)), configure Fathom Analytic's settings in a `config/fathom-anaytics.php` file (multi-site config is supported). See an example below:
 
 ```
 <?php
@@ -50,6 +50,12 @@ return array(
 
         // The tracking ID of this site. You can find the ID in your tracking code snippet, e.g.: ABCDE
         'trackingId' => '$FATHOM_TRACKING_ID',
+
+        // You can also use multi-site config values, e.g.
+        // 'trackingId' => [
+        //     'default' => '$FATHOM_TRACKING_ID',
+        //     '<...>' => '<...>'
+        // ]
 
         'username' => '$FATHOM_USERNAME',
 
