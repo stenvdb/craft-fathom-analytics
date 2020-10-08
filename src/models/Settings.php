@@ -11,6 +11,7 @@
 namespace stenvdb\fathomanalytics\models;
 
 use craft\behaviors\EnvAttributeParserBehavior;
+use craft\helpers\ConfigHelper;
 use stenvdb\fathomanalytics\FathomAnalytics;
 
 use Craft;
@@ -65,26 +66,26 @@ class Settings extends Model
     // Public Methods
     // =========================================================================
 
-    public function getBaseUri(): string
+    public function getBaseUri($siteHandle = null): string
     {
         // Cleanup the uri so we get a clean domain name
-        $baseUri = rtrim(preg_replace('#^https?://#', '', Craft::parseEnv($this->baseUri)), '/');
+        $baseUri = rtrim(preg_replace('#^https?://#', '', ConfigHelper::localizedValue($this->baseUri, $siteHandle)), '/');
         return $baseUri;
     }
 
-    public function getUsername(): string
+    public function getUsername($siteHandle = null): string
     {
-        return Craft::parseEnv($this->username);
+        return ConfigHelper::localizedValue($this->username, $siteHandle);
     }
 
-    public function getPassword(): string
+    public function getPassword($siteHandle = null): string
     {
-        return Craft::parseEnv($this->password);
+        return ConfigHelper::localizedValue($this->password, $siteHandle);
     }
 
-    public function getTrackingId(): string
+    public function getTrackingId($siteHandle = null): string
     {
-        return Craft::parseEnv($this->trackingId);
+        return ConfigHelper::localizedValue($this->trackingId, $siteHandle);
     }
 
     public function behaviors()
