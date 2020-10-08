@@ -18,39 +18,39 @@
 {% do view.registerAssetBundle("stenvdb\\fathomanalytics\\assetbundles\\fathomanalytics\\FathomAnalyticsAsset") %}
 
 {% set reportOptions = [
-  { label: 'visitors'|t('fathom-analytics')|ucwords, value: 'Visitors' },
-  { label: 'pageviews'|t('fathom-analytics')|ucwords, value: 'Pageviews' },
-  { label: 'sessions'|t('fathom-analytics')|ucwords, value: 'Sessions' },
-  { label: 'bounce rate'|t('fathom-analytics')|ucwords, value: 'BounceRate' },
+  { label: 'visitors'|t('fathom-analytics')|title, value: 'Visitors' },
+  { label: 'pageviews'|t('fathom-analytics')|title, value: 'Pageviews' },
+  { label: 'sessions'|t('fathom-analytics')|title, value: 'Sessions' },
+  { label: 'bounce rate'|t('fathom-analytics')|title, value: 'BounceRate' },
 ] %}
 
 {{ forms.selectField({
-  label: 'report'|t('fathom-analytics')|ucwords,
+  label: 'report'|t('fathom-analytics')|title,
   name: 'report',
   options: reportOptions,
   value: settings.report,
 }) }}
 
 {% set periodOptions = [
-  { label: 'week'|t('fathom-analytics')|ucwords, value: 'week' },
-  { label: 'month'|t('fathom-analytics')|ucwords, value: 'month' },
-  { label: 'year'|t('fathom-analytics')|ucwords, value: 'year' }
+  { label: 'week'|t('fathom-analytics')|title, value: 'week' },
+  { label: 'month'|t('fathom-analytics')|title, value: 'month' },
+  { label: 'year'|t('fathom-analytics')|title, value: 'year' }
 ] %}
 
 {{ forms.selectField({
-  label: 'period'|t('fathom-analytics')|ucwords,
+  label: 'period'|t('fathom-analytics')|title,
   name: 'period',
   options: periodOptions,
   value: settings.period,
 }) }}
 
 {% set chartOptions = [
-  { label: 'line chart'|t('fathom-analytics')|ucwords, value: 'line' },
-  { label: 'bar chart'|t('fathom-analytics')|ucwords, value: 'bar' },
+  { label: 'line chart'|t('fathom-analytics')|title, value: 'line' },
+  { label: 'bar chart'|t('fathom-analytics')|title, value: 'bar' },
 ] %}
 
 {{ forms.selectField({
-  label: 'chart type'|t('fathom-analytics')|ucwords,
+  label: 'chart type'|t('fathom-analytics')|title,
   name: 'chart',
   options: chartOptions,
   value: settings.chart,

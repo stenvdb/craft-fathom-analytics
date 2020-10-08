@@ -18,13 +18,13 @@
 {% do view.registerAssetBundle("stenvdb\\fathomanalytics\\assetbundles\\fathomanalytics\\FathomAnalyticsAsset") %}
 
 {% set periodOptions = [
-  { label: 'week'|t('fathom-analytics')|ucwords, value: 'week' },
-  { label: 'month'|t('fathom-analytics')|ucwords, value: 'month' },
-  { label: 'year'|t('fathom-analytics')|ucwords, value: 'year' }
+  { label: 'week'|t('fathom-analytics')|title, value: 'week' },
+  { label: 'month'|t('fathom-analytics')|title, value: 'month' },
+  { label: 'year'|t('fathom-analytics')|title, value: 'year' }
 ] %}
 
 {{ forms.selectField({
-  label: 'period'|t('fathom-analytics')|ucwords,
+  label: 'period'|t('fathom-analytics')|title,
   name: 'period',
   options: periodOptions,
   value: settings.period,
