@@ -69,23 +69,23 @@ class Settings extends Model
     public function getBaseUri($siteHandle = null): string
     {
         // Cleanup the uri so we get a clean domain name
-        $baseUri = rtrim(preg_replace('#^https?://#', '', ConfigHelper::localizedValue($this->baseUri, $siteHandle)), '/');
+        $baseUri = rtrim(preg_replace('#^https?://#', '', Craft::parseEnv(ConfigHelper::localizedValue($this->baseUri, $siteHandle))), '/');
         return $baseUri;
     }
 
     public function getUsername($siteHandle = null): string
     {
-        return ConfigHelper::localizedValue($this->username, $siteHandle);
+        return Craft::parseEnv(ConfigHelper::localizedValue($this->username, $siteHandle));
     }
 
     public function getPassword($siteHandle = null): string
     {
-        return ConfigHelper::localizedValue($this->password, $siteHandle);
+        return Craft::parseEnv(ConfigHelper::localizedValue($this->password, $siteHandle));
     }
 
     public function getTrackingId($siteHandle = null): string
     {
-        return ConfigHelper::localizedValue($this->trackingId, $siteHandle);
+        return Craft::parseEnv(ConfigHelper::localizedValue($this->trackingId, $siteHandle));
     }
 
     public function behaviors()

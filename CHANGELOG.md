@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.4 - 2020-10-19
+### Fixed
+- Put back the environment files parsing in the settings model
+
 ## 1.1.3 - 2020-10-08
 ### Fixed
 - Add support for localized settings
