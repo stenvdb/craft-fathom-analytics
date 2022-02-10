@@ -60,7 +60,7 @@
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^2.0.0",
     "mini-css-extract-plugin": "^0.4.3",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-normalize": "^7.0.1",
     "raw-loader": "^0.5.1",
